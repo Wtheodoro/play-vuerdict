@@ -19,6 +19,7 @@ import Button from './Button.vue'
       </p>
       <Button class="mt-12" :rounded="true">Get more details</Button>
     </div>
+
     <div class="md:w-1/2">
       <img
         src="../assets/images/joystick.svg"
