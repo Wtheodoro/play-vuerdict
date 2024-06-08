@@ -2,7 +2,18 @@
 export default {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
-    extend: {}
+    extend: {
+      colors: {
+        orange: {
+          light: '#FA9021',
+          dark: '#E87D0E'
+        },
+        'gradient-orange': {
+          from: '#FB9E3C',
+          to: '#FA8305'
+        }
+      }
+    }
   },
   plugins: []
 }
