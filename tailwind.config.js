@@ -9,8 +9,8 @@ export default {
           dark: '#E87D0E'
         },
         'gradient-orange': {
-          from: '#FB9E3C',
-          to: '#FA8305'
+          to: '#FB9E3C',
+          from: '#FA8305'
         }
       }
     }

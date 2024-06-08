@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .nav-link {
+    @apply transition duration-300 ease-in-out hover:text-orange-dark;
+  }
+}
