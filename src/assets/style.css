@@ -6,4 +6,8 @@
   .nav-link {
     @apply transition duration-300 ease-in-out hover:text-orange-dark;
   }
+
+  .active-nav-link {
+    @apply underline decoration-4 decoration-orange-light;
+  }
 }

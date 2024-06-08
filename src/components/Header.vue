@@ -13,10 +13,34 @@ import Logo from './Logo.vue'
     </div>
     <div class="flex items-center">
       <nav class="hidden md:flex md:gap-20">
-        <router-link to="/" class="nav-link">Home</router-link>
-        <router-link to="/about" class="nav-link">About Us</router-link>
-        <router-link to="/portfolio" class="nav-link">Portfolio</router-link>
-        <router-link to="/news" class="nav-link">News</router-link>
+        <router-link
+          to="/"
+          class="nav-link"
+          :class="{ 'active-nav-link': $route.path === '/' }"
+          exact
+          >Home</router-link
+        >
+        <router-link
+          to="/about"
+          class="nav-link"
+          :class="{ 'active-link': $route.path === '/about' }"
+          exact
+          >About Us</router-link
+        >
+        <router-link
+          to="/portfolio"
+          class="nav-link"
+          :class="{ 'active-nav-link': $route.path === '/portfolio' }"
+          exact
+          >Portfolio</router-link
+        >
+        <router-link
+          to="/news"
+          class="nav-link"
+          :class="{ 'active-nav-link': $route.path === '/news' }"
+          exact
+          >News</router-link
+        >
       </nav>
       <Button class="md:ml-9">Contact us</Button>
     </div>
