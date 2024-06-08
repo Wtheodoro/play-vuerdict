@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-8 md:mb-0 w-full flex flex-col justify-center items-center py-44">
+  <div class="mb-8 md:mb-0 w-full flex flex-col justify-center items-center py-44 background-image">
     <div class="w-full h-48 -mt-48 bg-gradient-to-b from-black to-transparent to-70%" />
 
     <p class="text-3xl text-gray-400 max-w-[600px] text-center">
@@ -14,3 +14,9 @@
     </p>
   </div>
 </template>
+
+<style scoped>
+.background-image {
+  background-image: url('@/assets/images/backgroundLines.png');
+}
+</style>

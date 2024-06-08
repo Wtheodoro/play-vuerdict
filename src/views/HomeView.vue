@@ -16,9 +16,7 @@ import AboutSection from '../components/AboutSection.vue'
     <FeaturedGamesSection />
     <CurrentlyTrendingGamesSection />
 
-    <div class="background-image">
-      <AboutSection />
-    </div>
+    <AboutSection />
   </main>
 </template>
 

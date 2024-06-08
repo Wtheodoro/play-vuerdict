@@ -2,6 +2,13 @@
 import { RouterLink } from 'vue-router'
 import Button from './Button.vue'
 import Logo from './Logo.vue'
+
+const navItems = [
+  { path: '/', text: 'Home' },
+  { path: '/all-games', text: 'All games' },
+  { path: '/portfolio', text: 'Portfolio' },
+  { path: '/news', text: 'News' }
+]
 </script>
 
 <template>
@@ -14,33 +21,15 @@ import Logo from './Logo.vue'
     <div class="flex items-center">
       <nav class="hidden md:flex md:gap-20">
         <router-link
-          to="/"
+          v-for="item in navItems"
+          :key="item.path"
+          :to="item.path"
           class="nav-link"
-          :class="{ 'active-nav-link': $route.path === '/' }"
+          :class="{ 'active-nav-link': $route.path === item.path }"
           exact
-          >Home</router-link
         >
-        <router-link
-          to="/about"
-          class="nav-link"
-          :class="{ 'active-link': $route.path === '/about' }"
-          exact
-          >About Us</router-link
-        >
-        <router-link
-          to="/portfolio"
-          class="nav-link"
-          :class="{ 'active-nav-link': $route.path === '/portfolio' }"
-          exact
-          >Portfolio</router-link
-        >
-        <router-link
-          to="/news"
-          class="nav-link"
-          :class="{ 'active-nav-link': $route.path === '/news' }"
-          exact
-          >News</router-link
-        >
+          {{ item.text }}
+        </router-link>
       </nav>
       <Button class="md:ml-9">Contact us</Button>
     </div>
