@@ -4,7 +4,7 @@ import FeaturedGameCard from './FeaturedGameCard.vue'
 </script>
 
 <template>
-  <section class="-mt-36 px-16 pb-80">
+  <section class="-mt-36 px-16">
     <SectionTitle>Featured Games</SectionTitle>
 
     <div class="mt-20 flex items-center gap-6 z-10 relative">

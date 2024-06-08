@@ -6,7 +6,7 @@ import Button from './Button.vue'
   <section
     class="flex flex-col md:flex-row items-center justify-center md:justify-between py-16 px-4 md:px-24 pb-52"
   >
-    <div class="md:w-1/2 mb-8 md:mb-0 md:max-w-[527px]">
+    <div class="mb-8 md:mb-0 md:max-w-[527px]">
       <p class="font-bold text-orange-dark">
         Made with <v-icon name="bi-suit-heart-fill" class="text-red-500" /> by Walison
       </p>

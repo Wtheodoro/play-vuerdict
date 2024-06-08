@@ -11,6 +11,9 @@ export default {
         'gradient-orange': {
           to: '#FB9E3C',
           from: '#FA8305'
+        },
+        green: {
+          grade: '#2CFF28'
         }
       },
       keyframes: {

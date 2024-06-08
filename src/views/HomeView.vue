@@ -2,6 +2,8 @@
 import Header from '../components/Header.vue'
 import MainSection from '../components/MainSection.vue'
 import FeaturedGamesSection from '../components/FeaturedGamesSection.vue'
+import CurrentlyTrendingGamesSection from '../components/CurrentlyTrendingGamesSection.vue'
+import AboutSection from '../components/AboutSection.vue'
 </script>
 
 <template>
@@ -10,7 +12,13 @@ import FeaturedGamesSection from '../components/FeaturedGamesSection.vue'
       <Header />
       <MainSection />
     </div>
+
     <FeaturedGamesSection />
+    <CurrentlyTrendingGamesSection />
+
+    <div class="background-image">
+      <AboutSection />
+    </div>
   </main>
 </template>
 

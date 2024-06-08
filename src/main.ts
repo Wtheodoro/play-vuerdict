@@ -7,9 +7,9 @@ import App from './App.vue'
 import router from './router'
 
 import { OhVueIcon, addIcons } from 'oh-vue-icons'
-import { BiSuitHeartFill } from 'oh-vue-icons/icons'
+import { BiSuitHeartFill, MdLocalfiredepartment, BiStarFill } from 'oh-vue-icons/icons'
 
-addIcons(BiSuitHeartFill)
+addIcons(BiSuitHeartFill, MdLocalfiredepartment, BiStarFill)
 
 const app = createApp(App)
 app.use(createPinia())
