@@ -4,7 +4,7 @@ import Button from './Button.vue'
 
 <template>
   <section
-    class="flex flex-col md:flex-row items-center justify-center md:justify-between py-16 px-4 md:px-24"
+    class="flex flex-col md:flex-row items-center justify-center md:justify-between py-16 px-4 md:px-24 pb-52"
   >
     <div class="md:w-1/2 mb-8 md:mb-0 md:max-w-[527px]">
       <p class="font-bold text-orange-dark">
@@ -27,4 +27,6 @@ import Button from './Button.vue'
       />
     </div>
   </section>
+
+  <div class="w-full h-48 -mt-48 bg-gradient-to-t from-black to-transparent to-35%" />
 </template>

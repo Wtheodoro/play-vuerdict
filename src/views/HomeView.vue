@@ -1,17 +1,21 @@
 <script setup lang="ts">
 import Header from '../components/Header.vue'
 import MainSection from '../components/MainSection.vue'
+import FeaturedGamesSection from '../components/FeaturedGamesSection.vue'
 </script>
 
 <template>
   <main class="bg-cover bg-center min-h-screen bg-black text-white">
-    <Header />
-    <MainSection />
+    <div class="background-image">
+      <Header />
+      <MainSection />
+    </div>
+    <FeaturedGamesSection />
   </main>
 </template>
 
-<style>
-main {
+<style scoped>
+.background-image {
   background-image: url('@/assets/images/backgroundLines.png');
 }
 </style>
