@@ -12,6 +12,22 @@ export default {
           to: '#FB9E3C',
           from: '#FA8305'
         }
+      },
+      keyframes: {
+        customBounce: {
+          '0%, 20%, 50%, 80%, 100%': {
+            transform: 'translateY(0)'
+          },
+          '40%': {
+            transform: 'translateY(-20px)'
+          },
+          '60%': {
+            transform: 'translateY(-10px)'
+          }
+        }
+      },
+      animation: {
+        'bounce-slow': 'customBounce 12s ease-in-out infinite'
       }
     }
   },

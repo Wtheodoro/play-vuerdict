@@ -20,7 +20,11 @@ import Button from './Button.vue'
       <Button class="mt-12" :rounded="true">Get more details</Button>
     </div>
     <div class="md:w-1/2">
-      <img src="../assets/images/joystick.svg" alt="Joystick" class="w-full md:w-auto" />
+      <img
+        src="../assets/images/joystick.svg"
+        alt="Joystick"
+        class="w-full md:w-auto animate-bounce-slow"
+      />
     </div>
   </section>
 </template>
