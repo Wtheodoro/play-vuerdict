@@ -2,6 +2,7 @@
 import { ref, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useToast } from 'vue-toastification'
+import { formatDateNumeric } from '../helpers/formatDate.js'
 
 const gamesData = ref([])
 const router = useRouter()
@@ -46,7 +47,7 @@ const submitForm = () => {
     review: form.value.review,
     gameId: form.value.gameId,
     rating: 5,
-    date: '2024-06-01'
+    date: formatDateNumeric(new Date())
   }
 
   postReview(payload)
@@ -62,7 +63,6 @@ const submitForm = () => {
 onMounted(() => {
   getGames().then((data) => {
     if (data.length) {
-      console.log(data)
       gamesData.value = data
     }
   })
