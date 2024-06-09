@@ -1,9 +1,27 @@
+<script setup>
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const MOCK_GAME_NAME = 'Prince of Persia The Lost Crown'
+
+const handleClick = () => {
+  const gameSlug = MOCK_GAME_NAME.toLowerCase().replace(/\s+/g, '_')
+  router.push(`/games/${gameSlug}/123`)
+}
+</script>
+
 <template>
   <div
-    class="w-[550px] h-[330px] relative rounded-2xl bg-gradient-to-tl from-[#1255a7] via-[#01112f] to-[#051d43]"
+    class="w-[550px] h-[330px] relative rounded-2xl bg-gradient-to-tl from-[#1255a7] via-[#01112f] to-[#051d43] cursor-pointer"
+    @click="handleClick"
   >
     <div class="bg-gradient-to-t from-black/70 via-transparent to-transparent w-full h-full">
-      <p class="font-bold text-xl absolute bottom-10 left-10 cursor-pointer">Final Fantasy VII</p>
+      <p
+        class="font-bold text-xl absolute bottom-10 left-10 cursor-pointer transition duration-300 ease-in-out hover:text-orange-dark"
+      >
+        Final Fantasy VII
+      </p>
       <img
         src="../assets/images/cloudStrife.svg"
         alt="Cloud Strife"
