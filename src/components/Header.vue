@@ -5,9 +5,7 @@ import Logo from './Logo.vue'
 
 const navItems = [
   { path: '/', text: 'Home' },
-  { path: '/all-games', text: 'All games' },
-  { path: '/portfolio', text: 'Portfolio' },
-  { path: '/news', text: 'News' }
+  { path: '/all-games', text: 'All games' }
 ]
 </script>
 

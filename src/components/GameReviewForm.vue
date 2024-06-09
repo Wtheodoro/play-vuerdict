@@ -1,10 +1,11 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import { useToast } from 'vue-toastification'
 
 const gamesData = ref([])
 const router = useRouter()
+const route = useRoute()
 const toast = useToast()
 
 const form = ref({
@@ -65,6 +66,11 @@ onMounted(() => {
       gamesData.value = data
     }
   })
+
+  const gameIdFromRoute = route.query.gameId
+  if (gameIdFromRoute) {
+    form.value.gameId = parseInt(gameIdFromRoute)
+  }
 })
 </script>
 
