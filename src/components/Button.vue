@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { defineProps } from 'vue'
 
-interface Props {
+interface ButtonProps {
   rounded?: boolean
 }
 
-const props = defineProps<Props>()
+const props = defineProps<ButtonProps>()
 </script>
 
 <template>
