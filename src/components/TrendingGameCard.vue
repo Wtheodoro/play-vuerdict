@@ -7,7 +7,7 @@ const MOCK_GAME_NAME = 'Prince of Persia The Lost Crown'
 
 const handleClick = () => {
   const gameSlug = MOCK_GAME_NAME.toLowerCase().replace(/\s+/g, '_')
-  router.push(`/games/${gameSlug}/123`)
+  router.push(`/games/${gameSlug}/1`)
 }
 </script>
 

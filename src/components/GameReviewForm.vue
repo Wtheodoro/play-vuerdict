@@ -1,7 +1,11 @@
 <script setup>
 import { ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
+import { useToast } from 'vue-toastification'
 
 const gamesData = ref([])
+const router = useRouter()
+const toast = useToast()
 
 const form = ref({
   name: '',
@@ -23,20 +27,35 @@ const postReview = async (payload) => {
   }
 
   return fetch('http://localhost:8000/api/reviews', options)
-    .then((response) => response.json())
-    .catch((error) => console.error('Error posting review:', error))
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok')
+      }
+      return response.json()
+    })
+    .catch((error) => {
+      console.error('Error posting review:', error)
+      throw error
+    })
 }
 
 const submitForm = () => {
   const payload = {
     name: form.value.name,
     review: form.value.review,
-    gameId: Number(form.value.gameId),
+    gameId: form.value.gameId,
     rating: 5,
     date: '2024-06-01'
   }
 
   postReview(payload)
+    .then(() => {
+      toast.success('Review posted successfully!')
+      router.back()
+    })
+    .catch((error) => {
+      toast.error('Error posting review: ' + error.message)
+    })
 }
 
 onMounted(() => {
