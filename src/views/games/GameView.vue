@@ -1,15 +1,45 @@
 <script setup>
-import { useRouter } from 'vue-router'
+import { ref, onMounted } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import Header from '../../components/Header.vue'
 import Button from '../../components/Button.vue'
 import SectionTitle from '../../components/SectionTitle.vue'
 import ReviewCard from '../../components/ReviewCard.vue'
 
+const route = useRoute()
 const router = useRouter()
+const reviewsData = ref([])
+const gameData = ref({})
+
+const getCurrentGameReviews = async () => {
+  return fetch(`http://localhost:8000/api/reviews/${route.params.id}`).then((response) =>
+    response.json()
+  )
+}
+
+const getCurrentGame = async () => {
+  return fetch(`http://localhost:8000/api/games/${route.params.id}`).then((response) =>
+    response.json()
+  )
+}
 
 const handleClick = () => {
-  router.push('/add-review')
+  router.push(`/add-review?gameId=${route.params.id}`)
 }
+
+onMounted(() => {
+  getCurrentGameReviews().then((data) => {
+    if (data.length) {
+      reviewsData.value = data
+    }
+  })
+
+  getCurrentGame().then((data) => {
+    if (data.id) {
+      gameData.value = data
+    }
+  })
+})
 </script>
 
 <template>
@@ -22,9 +52,11 @@ const handleClick = () => {
       >
         <div class="mb-8 md:mb-0 md:max-w-[527px] mt-20">
           <h2 class="text-4xl md:text-5xl font-bold mb-4 leading-normal md:leading-relaxed mt-2">
-            Prince of Persia The Lost Crown
+            {{ gameData.name }}
           </h2>
-          <Button class="mt-12" :rounded="true" @click="handleClick">Add my review</Button>
+          <Button class="mt-12" :rounded="true" @click="handleClick" v-if="gameData.id"
+            >Add my review</Button
+          >
         </div>
 
         <div class="md:w-1/2 flex justify-end mt-20">
@@ -35,7 +67,6 @@ const handleClick = () => {
           />
         </div>
       </div>
-      <!-- {{ $route.params.id }} -->
     </div>
   </div>
 
@@ -43,18 +74,7 @@ const handleClick = () => {
     <div class="flex flex-col justify-center items-center">
       <SectionTitle>Description</SectionTitle>
       <p class="text-xl text-center max-w-[1040px]">
-        Dash into a stylish and thrilling action-adventure platformer game set in a mythological
-        Persian world where the boundaries of time and space are yours to manipulate. Use your Time
-        Powers, combat and platforming skills to perform deadly combos and defeat time-corrupted
-        enemies and mythological creatures. Acquire and equip new Amulets at shopkeepers to play as
-        you see fit. Discover a cursed Persian-inspired world filled with bigger-than-life
-        landmarks. Explore a variety of highly detailed biomes, each with its own identity, wonders
-        and dangers. Use your wits to solve puzzles, find hidden treasures and complete quests to
-        learn more about this corupted place. Immerse yourself into a Persian mythological fantasy
-        through an intriguing and original story. Cross paths with colorful characters to better
-        unravel the mysteries of Mount Qaf. Enjoy high quality graphics, immersive cinematics and
-        fresh Artistic Direction, along with a unique gameplay fluidity thanks to 60 fps rate on all
-        platforms. [Ubisoft]
+        {{ gameData.description }}
       </p>
     </div>
 
@@ -62,10 +82,23 @@ const handleClick = () => {
       <SectionTitle>User Reviews</SectionTitle>
 
       <div class="max-w-[1024px] flex flex-col justify-center items-center gap-10 mx-auto">
-        <ReviewCard />
-        <ReviewCard />
-        <ReviewCard />
-        <ReviewCard />
+        <ReviewCard
+          v-for="review in reviewsData"
+          :key="review.id"
+          :review="review.review"
+          :date="review.date"
+          :name="review.name"
+        />
+
+        <div
+          v-if="reviewsData.length === 0 && gameData.id"
+          class="bg-gray-800 text-white text-center p-6 rounded-lg shadow-md"
+        >
+          <p class="text-2xl">
+            There are no reviews for this game yet, but you can be the first to add one!
+          </p>
+          <Button class="mt-12" :rounded="true" @click="handleClick">Add my review</Button>
+        </div>
       </div>
     </div>
   </main>

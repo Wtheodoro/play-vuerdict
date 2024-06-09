@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { defineProps } from 'vue'
-import formatDate from '../helpers/formatDate'
-import getInitials from '../helpers/formatDate'
+import formatDate from '../helpers/formatDate.js'
+import getInitials from '../helpers/getInitials.js'
 
 interface ReviewCardProps {
   name: string
@@ -24,7 +24,7 @@ const props = defineProps<ReviewCardProps>()
         <p>{{ props.name }}</p>
       </div>
 
-      <p>{{ formatDate('2024-06-01') }}</p>
+      <p>{{ formatDate(props.date) }}</p>
     </div>
 
     <div class="mt-10">
