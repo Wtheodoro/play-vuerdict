@@ -1,8 +1,15 @@
 <script setup>
+import { useRouter } from 'vue-router'
 import Header from '../../components/Header.vue'
 import Button from '../../components/Button.vue'
 import SectionTitle from '../../components/SectionTitle.vue'
 import ReviewCard from '../../components/ReviewCard.vue'
+
+const router = useRouter()
+
+const handleClick = () => {
+  router.push('/add-review')
+}
 </script>
 
 <template>
@@ -17,7 +24,7 @@ import ReviewCard from '../../components/ReviewCard.vue'
           <h2 class="text-4xl md:text-5xl font-bold mb-4 leading-normal md:leading-relaxed mt-2">
             Prince of Persia The Lost Crown
           </h2>
-          <Button class="mt-12" :rounded="true">Add my rating</Button>
+          <Button class="mt-12" :rounded="true" @click="handleClick">Add my review</Button>
         </div>
 
         <div class="md:w-1/2 flex justify-end mt-20">

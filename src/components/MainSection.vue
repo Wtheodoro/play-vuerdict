@@ -1,5 +1,12 @@
 <script setup>
 import Button from './Button.vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const handleClick = () => {
+  router.push('/add-review')
+}
 </script>
 
 <template>
@@ -17,7 +24,7 @@ import Button from './Button.vue'
         You'll find in-depth reviews, player ratings, and discussions on the latest games, all in
         one place. Join our community of gamers and start exploring today!
       </p>
-      <Button class="mt-12" :rounded="true">Get more details</Button>
+      <Button class="mt-12" :rounded="true" @click="handleClick">Add my review</Button>
     </div>
 
     <div class="md:w-1/2">
