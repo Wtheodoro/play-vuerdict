@@ -1,21 +1,52 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
-const games = ref([
-  { id: 1, name: 'Game 1' },
-  { id: 2, name: 'Game 2' },
-  { id: 3, name: 'Game 3' }
-])
+const gamesData = ref([])
 
 const form = ref({
-  author: '',
+  name: '',
   review: '',
-  game: ''
+  gameId: ''
 })
 
-const submitForm = () => {
-  console.log('Form Submitted:', form.value)
+const getGames = async () => {
+  return fetch('http://localhost:8000/api/games').then((response) => response.json())
 }
+
+const postReview = async (payload) => {
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(payload)
+  }
+
+  return fetch('http://localhost:8000/api/reviews', options)
+    .then((response) => response.json())
+    .catch((error) => console.error('Error posting review:', error))
+}
+
+const submitForm = () => {
+  const payload = {
+    name: form.value.name,
+    review: form.value.review,
+    gameId: Number(form.value.gameId),
+    rating: 5,
+    date: '2024-06-01'
+  }
+
+  postReview(payload)
+}
+
+onMounted(() => {
+  getGames().then((data) => {
+    if (data.length) {
+      console.log(data)
+      gamesData.value = data
+    }
+  })
+})
 </script>
 
 <template>
@@ -24,7 +55,7 @@ const submitForm = () => {
       <div class="mb-4">
         <label for="author" class="block text-sm font-medium mb-2">Your Name</label>
         <input
-          v-model="form.author"
+          v-model="form.name"
           type="text"
           id="author"
           class="w-full p-2 border border-gray-600 rounded bg-gray-700 focus:outline-none focus:border-gray-400"
@@ -44,13 +75,13 @@ const submitForm = () => {
       <div class="mb-4">
         <label for="game" class="block text-sm font-medium mb-2">Game</label>
         <select
-          v-model="form.game"
+          v-model="form.gameId"
           id="game"
           class="w-full p-2 border border-gray-600 rounded bg-gray-700 focus:outline-none focus:border-gray-400"
           required
         >
           <option disabled value="">Select a game</option>
-          <option v-for="game in games" :key="game.id" :value="game.name">{{ game.name }}</option>
+          <option v-for="game in gamesData" :key="game.id" :value="game.id">{{ game.name }}</option>
         </select>
       </div>
       <button
