@@ -20,9 +20,14 @@ const router = createRouter({
       component: () => import('../views/AllGamesView.vue')
     },
     {
-      path: '/games/:name-:id',
-      name: 'game',
+      path: '/games/:name/:id',
+      name: 'games',
       component: () => import('../views/games/GameView.vue')
+    },
+    {
+      path: '/add-review',
+      name: 'review',
+      component: () => import('../views/AddReviewView.vue')
     }
   ]
 })

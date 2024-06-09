@@ -1,12 +1,25 @@
+<script setup>
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const MOCK_GAME_NAME = 'Prince of Persia The Lost Crown'
+
+const handleClick = () => {
+  const gameSlug = MOCK_GAME_NAME.toLowerCase().replace(/\s+/g, '_')
+  router.push(`/games/${gameSlug}/123`)
+}
+</script>
+
 <template>
-  <div class="w-64 flex flex-col items-center">
+  <div class="w-64 flex flex-col items-center" @click="handleClick">
     <img
       src="../assets/images/princeOfPersia.avif"
       alt="prince of persia"
       class="w-64 h-72 rounded-lg hover:scale-105 transition duration-200 ease-in-out cursor-pointer"
     />
 
-    <p>Prince of Persia The Lost Crown</p>
+    <p class="mt-4">Prince of Persia The Lost Crown</p>
 
     <div class="w-full flex items-center mt-3 gap-1">
       <v-icon name="md-localfiredepartment" class="text-red-500" />
