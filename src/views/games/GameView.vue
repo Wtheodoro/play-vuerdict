@@ -50,9 +50,9 @@ const bannerImageUrl = computed(() => {
 <template>
   <div
     :style="{ backgroundImage: bannerImageUrl }"
-    class="w-full h-screen bg-cover bg-no-repeat bg-center text-white pb-20"
+    class="w-full h-[calc(100vh_-_120px)] bg-cover bg-no-repeat bg-center text-white pb-20"
   >
-    <div class="w-full h-full bg-gradient-to-t from-black from-20% to-transparent">
+    <div class="w-full h-[calc(100vh_-_120px)] bg-gradient-to-t from-black from-20% to-transparent">
       <Header />
 
       <div
