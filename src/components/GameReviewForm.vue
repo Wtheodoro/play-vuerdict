@@ -2,6 +2,7 @@
 import { ref, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { getAllGames } from '@/services/games'
+import { postReview } from '@/services/reviews'
 import { useToast } from 'vue-toastification'
 import { formatDateNumeric } from '../helpers/formatDate.js'
 
@@ -15,27 +16,6 @@ const form = ref({
   review: '',
   gameId: ''
 })
-const postReview = async (payload) => {
-  const options = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(payload)
-  }
-
-  return fetch('http://localhost:8000/api/reviews', options)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok')
-      }
-      return response.json()
-    })
-    .catch((error) => {
-      console.error('Error posting review:', error)
-      throw error
-    })
-}
 
 const submitForm = () => {
   const payload = {

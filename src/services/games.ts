@@ -9,6 +9,5 @@ export const getAllGames = async () => {
 }
 
 export const getCurrentGame = async (gameId: string) => {
-  console.log(gameId)
   return fetch(`${API_URL}/api/games/${gameId}`).then((response) => response.json())
 }

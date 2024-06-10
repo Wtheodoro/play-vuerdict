@@ -2,6 +2,7 @@
 import { ref, onMounted, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { getCurrentGame } from '@/services/games'
+import { getCurrentGameReviews } from '@/services/reviews'
 import Header from '../../components/Header.vue'
 import Button from '../../components/Button.vue'
 import SectionTitle from '../../components/SectionTitle.vue'
@@ -12,18 +13,12 @@ const router = useRouter()
 const reviewsData = ref([])
 const gameData = ref({})
 
-const getCurrentGameReviews = async () => {
-  return fetch(`http://localhost:8000/api/reviews/${route.params.id}`).then((response) =>
-    response.json()
-  )
-}
-
 const handleClick = () => {
   router.push(`/add-review?gameId=${route.params.id}`)
 }
 
 onMounted(() => {
-  getCurrentGameReviews().then((data) => {
+  getCurrentGameReviews(route.params.id).then((data) => {
     if (data.length) {
       reviewsData.value = data
     }
