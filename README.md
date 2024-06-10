@@ -1,39 +1,40 @@
-# play-vuerdict
+# Play Vuerdict Webapp
 
-This template should help get you started developing with Vue 3 in Vite.
+Welcome to the Play Vuerdict Web App documentation. This web app allows users to explore and review games. It is built using Vue 3, Vite, and Tailwind CSS.
 
-## Recommended IDE Setup
+<div style="background: linear-gradient(to top, #00243D, transparent);">
+  <p align="center">
+    <img src="https://raw.githubusercontent.com/Wtheodoro/play-vuerdict/main/src/assets/images/cloudStrife.svg" width="200" alt="Cloud Strife">
+  </p>
+</div>
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+**Technologies used:**
 
-## Type Support for `.vue` Imports in TS
+- Vue3
+- Vite
+- Tailwind CSS
+- Pinia
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+## Installation
 
-## Customize configuration
+Make sure you have [Node.js](https://nodejs.org) installed on your system. Clone this repository and run the following command to install dependencies:
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
+```bash
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+## Execution
 
-```sh
+```bash
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+The development server will start and be accessible at http://localhost:5173 (or the default Vite port you configured).
 
-```sh
-npm run build
-```
+## Backend Integration
 
-### Lint with [ESLint](https://eslint.org/)
+This web app works in conjunction with a backend server. You can find the backend repository at the following URL:
 
-```sh
-npm run lint
-```
+[Play Vuerdict API](https://github.com/Wtheodoro/plau-vuerdict-api)
+
+Make sure to follow the setup instructions in the backend repository to get the server up and running.
