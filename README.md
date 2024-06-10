@@ -31,6 +31,11 @@ npm run dev
 
 The development server will start and be accessible at http://localhost:5173 (or the default Vite port you configured).
 
+## work to be developed
+
+[ ] - Store games already requested inside Pinia global storage
+[ ] - fix mobile styles for home page
+
 ## Backend Integration
 
 This web app works in conjunction with a backend server. You can find the backend repository at the following URL:
