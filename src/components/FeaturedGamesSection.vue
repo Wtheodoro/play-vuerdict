@@ -7,8 +7,7 @@ import FeaturedGameCard from './FeaturedGameCard.vue'
   <section class="-mt-36 px-16">
     <SectionTitle>Featured Games</SectionTitle>
 
-    <div class="mt-20 flex items-center gap-6 z-10 relative">
-      <FeaturedGameCard />
+    <div class="mt-20 flex justify-center items-center gap-10 z-10 relative">
       <FeaturedGameCard />
       <FeaturedGameCard />
     </div>

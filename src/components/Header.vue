@@ -11,7 +11,7 @@ const navItems = [
 
 <template>
   <header
-    class="w-screen p-10 md:px-28 flex flex-col md:flex-row justify-between items-center gap-10 md:gap-0"
+    class="w-full p-10 md:px-28 flex flex-col md:flex-row justify-between items-center gap-10 md:gap-0"
   >
     <div>
       <Logo />
