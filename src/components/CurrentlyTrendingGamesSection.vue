@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import LinkButton from './LinkButton.vue'
 import TrendingGameCard from './TrendingGameCard.vue'
-import { Game } from '@/types/game.ts'
+import type { Game } from '@/types/game'
 
 interface TrendingGamesCard {
   trendingGames: Game[]
