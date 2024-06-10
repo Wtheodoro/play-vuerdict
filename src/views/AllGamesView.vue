@@ -1,15 +1,12 @@
 <script setup>
 import { ref, onMounted } from 'vue'
+import { getAllGames } from '@/services/games'
 import Header from '../components/Header.vue'
 import SectionTitle from '../components/SectionTitle.vue'
 import TrendingGameCard from '../components/TrendingGameCard.vue'
 import AboutSection from '../components/AboutSection.vue'
 
 const allGamesData = ref({})
-
-const getAllGames = async () => {
-  return fetch('http://localhost:8000/api/games?limit=50').then((response) => response.json())
-}
 
 onMounted(() => {
   getAllGames().then((data) => {

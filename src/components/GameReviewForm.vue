@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
+import { getAllGames } from '@/services/games'
 import { useToast } from 'vue-toastification'
 import { formatDateNumeric } from '../helpers/formatDate.js'
 
@@ -14,11 +15,6 @@ const form = ref({
   review: '',
   gameId: ''
 })
-
-const getGames = async () => {
-  return fetch('http://localhost:8000/api/games').then((response) => response.json())
-}
-
 const postReview = async (payload) => {
   const options = {
     method: 'POST',
@@ -61,7 +57,7 @@ const submitForm = () => {
 }
 
 onMounted(() => {
-  getGames().then((data) => {
+  getAllGames().then((data) => {
     if (data.length) {
       gamesData.value = data
     }

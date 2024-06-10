@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-
+import { getTrendingGames } from '@/services/games'
 import Header from '../components/Header.vue'
 import MainSection from '../components/MainSection.vue'
 import FeaturedGamesSection from '../components/FeaturedGamesSection.vue'
@@ -8,10 +8,6 @@ import CurrentlyTrendingGamesSection from '../components/CurrentlyTrendingGamesS
 import AboutSection from '../components/AboutSection.vue'
 
 const trendingGamesData = ref([])
-
-const getTrendingGames = async () => {
-  return fetch('http://localhost:8000/api/games?limit=5').then((response) => response.json())
-}
 
 onMounted(() => {
   getTrendingGames().then((data) => {
