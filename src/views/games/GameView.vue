@@ -92,7 +92,7 @@ const bannerImageUrl = computed(() => {
       <div class="max-w-[1024px] flex flex-col justify-center items-center gap-10 mx-auto">
         <ReviewCard
           v-for="review in reviewsData"
-          :key="review.id"
+          :key="review._id"
           :review="review.review"
           :date="review.date"
           :name="review.name"

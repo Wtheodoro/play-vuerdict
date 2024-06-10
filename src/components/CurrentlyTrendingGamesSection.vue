@@ -1,6 +1,13 @@
-<script setup>
+<script setup lang="ts">
 import LinkButton from './LinkButton.vue'
 import TrendingGameCard from './TrendingGameCard.vue'
+import { Game } from '@/types/game.ts'
+
+interface TrendingGamesCard {
+  trendingGames: Game[]
+}
+
+const props = defineProps<TrendingGamesCard>()
 </script>
 
 <template>
@@ -11,11 +18,15 @@ import TrendingGameCard from './TrendingGameCard.vue'
     </div>
 
     <div class="mt-20 flex flex-wrap justify-center items-center gap-10">
-      <TrendingGameCard />
-      <TrendingGameCard />
-      <TrendingGameCard />
-      <TrendingGameCard />
-      <TrendingGameCard />
+      <TrendingGameCard
+        v-for="game in props.trendingGames"
+        :key="game._id"
+        :gameId="game._id"
+        :name="game.name"
+        :rating="game.rating"
+        :cardImageUrl="game.cardImageUrl"
+        :slug="game.slug"
+      />
     </div>
   </section>
 </template>
