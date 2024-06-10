@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import Header from '../../components/Header.vue'
 import Button from '../../components/Button.vue'
@@ -35,15 +35,23 @@ onMounted(() => {
   })
 
   getCurrentGame().then((data) => {
-    if (data.id) {
+    console.log(data)
+    if (data._id) {
       gameData.value = data
     }
   })
 })
+
+const bannerImageUrl = computed(() => {
+  return gameData.value.bannerImageUrl ? `url(${gameData.value.bannerImageUrl})` : ''
+})
 </script>
 
 <template>
-  <div class="background-image w-full h-screen bg-cover bg-no-repeat bg-center text-white pb-20">
+  <div
+    :style="{ backgroundImage: bannerImageUrl }"
+    class="w-full h-screen bg-cover bg-no-repeat bg-center text-white pb-20"
+  >
     <div class="w-full h-full bg-gradient-to-t from-black from-20% to-transparent">
       <Header />
 
@@ -54,14 +62,14 @@ onMounted(() => {
           <h2 class="text-4xl md:text-5xl font-bold mb-4 leading-normal md:leading-relaxed mt-2">
             {{ gameData.name }}
           </h2>
-          <Button class="mt-12" :rounded="true" @click="handleClick" v-if="gameData.id"
+          <Button class="mt-12" :rounded="true" @click="handleClick" v-if="gameData._id"
             >Add my review</Button
           >
         </div>
 
         <div class="md:w-1/2 flex justify-end mt-20">
           <img
-            src="../../assets/images/princeOfPersia.avif"
+            :src="gameData.cardImageUrl"
             alt="prince of persia"
             class="w-64 h-72 rounded-lg hover:scale-105 transition duration-200 ease-in-out cursor-pointer"
           />
@@ -91,7 +99,7 @@ onMounted(() => {
         />
 
         <div
-          v-if="reviewsData.length === 0 && gameData.id"
+          v-if="reviewsData.length === 0 && gameData._id"
           class="bg-gray-800 text-white text-center p-6 rounded-lg shadow-md"
         >
           <p class="text-2xl">
@@ -103,9 +111,3 @@ onMounted(() => {
     </div>
   </main>
 </template>
-
-<style scoped>
-.background-image {
-  background-image: url('@/assets/images/princeOfPersiaBanner.png');
-}
-</style>

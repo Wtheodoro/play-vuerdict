@@ -69,7 +69,7 @@ onMounted(() => {
 
   const gameIdFromRoute = route.query.gameId
   if (gameIdFromRoute) {
-    form.value.gameId = parseInt(gameIdFromRoute)
+    form.value.gameId = gameIdFromRoute
   }
 })
 </script>
@@ -106,7 +106,9 @@ onMounted(() => {
           required
         >
           <option disabled value="">Select a game</option>
-          <option v-for="game in gamesData" :key="game.id" :value="game.id">{{ game.name }}</option>
+          <option v-for="game in gamesData" :key="game._id" :value="game._id">
+            {{ game.name }}
+          </option>
         </select>
       </div>
       <button
