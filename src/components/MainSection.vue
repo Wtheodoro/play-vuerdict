@@ -1,6 +1,7 @@
 <script setup>
 import Button from './Button.vue'
 import { useRouter } from 'vue-router'
+import joystickImg from '@/assets/images/Joystick.svg'
 
 const router = useRouter()
 
@@ -28,11 +29,7 @@ const handleClick = () => {
     </div>
 
     <div class="md:w-1/2">
-      <img
-        src="../assets/images/joystick.svg"
-        alt="Joystick"
-        class="w-full md:w-auto animate-bounce-slow"
-      />
+      <img :src="joystickImg" alt="Joystick" class="w-full md:w-auto animate-bounce-slow" />
     </div>
   </section>
 
