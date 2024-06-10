@@ -2,6 +2,8 @@
 
 Welcome to the Play Vuerdict Web App documentation. This web app allows users to explore and review games. It is built using Vue 3, Vite, and Tailwind CSS.
 
+Check the deploy [`preview`](https://play-vuerdict.walisontsx.com/)
+
 <div style="background: linear-gradient(to top, #00243D, transparent);">
   <p align="center">
     <img src="https://raw.githubusercontent.com/Wtheodoro/play-vuerdict/main/src/assets/images/cloudStrife.svg" width="200" alt="Cloud Strife">
@@ -30,7 +32,6 @@ Before starting, you need to set up your environment variables. Create a .env fi
 VITE_API_URL="http://localhost:8000"
 
 VITE_API_URL: The port on which the API server is run.
-
 
 ## Execution
 
