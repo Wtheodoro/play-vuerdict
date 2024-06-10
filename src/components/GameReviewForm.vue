@@ -4,7 +4,7 @@ import { useRouter, useRoute } from 'vue-router'
 import { getAllGames } from '@/services/games'
 import { postReview } from '@/services/reviews'
 import { useToast } from 'vue-toastification'
-import { formatDateNumeric } from '../helpers/formatDate.js'
+import { formatDateNumeric } from '../helpers/formatDate'
 
 const gamesData = ref([])
 const router = useRouter()

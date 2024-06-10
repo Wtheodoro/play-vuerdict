@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { defineProps } from 'vue'
-import { formatDateWithMonthName } from '../helpers/formatDate.js'
+import { formatDateWithMonthName } from '../helpers/formatDate'
 import getInitials from '../helpers/getInitials.js'
 
 interface ReviewCardProps {
   name: string
-  date: string
+  date: Date
   review: string
 }
 
