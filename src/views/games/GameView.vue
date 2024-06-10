@@ -35,7 +35,6 @@ onMounted(() => {
   })
 
   getCurrentGame().then((data) => {
-    console.log(data)
     if (data._id) {
       gameData.value = data
     }
