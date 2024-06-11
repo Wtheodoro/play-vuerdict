@@ -29,9 +29,9 @@ npm install
 
 Before starting, you need to set up your environment variables. Create a .env file in the root of the project and define the following variables exemples:
 
-VITE_API_URL="http://localhost:8000"
-
-VITE_API_PORT: The port on which the API server is run.
+```bash
+VITE_API_URL="http://localhost:8000" # URL:PORT
+```
 
 ## Execution
 
